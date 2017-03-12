@@ -1,0 +1,36 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js",
+    "watch": "babel -w src/ -d dist/",
+    "build": "babel src/ -d dist/",
+    "serve": "babel -w src/ -d dist/ | nodemon --watch dist"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel": "^6.5.2",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.15.2",
+    "cors": "^2.8.1",
+    "express": "^4.14.0",
+    "jwt-simple": "^0.5.1",
+    "mongoose": "^4.7.1",
+    "morgan": "^1.7.0",
+    "nodemon": "^1.11.0",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-cli": "^6.18.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "babel-preset-stage-3": "^6.17.0",
+    "nodemon": "^1.11.0"
+  }
+}

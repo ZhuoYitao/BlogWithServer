@@ -1,0 +1,46 @@
+p{
+    color: black;
+}
+
+.navAuth{
+    float: right;
+}
+
+.full-width{
+    width: 100%;
+}
+
+.my_nav{
+    padding: 0px 0px 0px 0px;
+    margin: 10px 0px 10px;
+}
+
+.zero-margin{
+    margin: 0px;
+}
+
+.floatToRight{
+    float: right;
+}
+
+.deleteButton{
+    margin: auto;
+    position: absolute;
+    top: 0; left: auto; bottom: 0; right: 0;
+}
+
+.headingAfterIcon{
+    display: inline;
+}
+
+.my-display-hidden{
+    display: none;
+}
+
+.my-display-inline{
+    display: inline;
+}
+
+#new-post-back{
+    margin-left: 10px;
+}
