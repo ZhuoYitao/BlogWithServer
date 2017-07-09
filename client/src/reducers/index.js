@@ -48,6 +48,8 @@ function postReducer(state={posts:[], postDetail:{}}, action){
             return {...state, posts: newPosts};
         case 'getPostDetail':
             return {...state, postDetail: action.payload};
+        case 'editPostDetail':
+            return {...state, postDetail: action.payload};
         default:
             return state;
     }

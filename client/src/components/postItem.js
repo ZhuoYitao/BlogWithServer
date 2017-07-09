@@ -12,22 +12,20 @@ class PostItem extends Component{
 
     render(){
         return (
-            <BlockWithHiddenEles caller={this} hiddenNum={1}>
-                <li className="list-group-item">
-                    <Link to={`posts/${this.props.postId}`}>
-                        <strong>{this.props.postTitle}</strong>
-                    </Link>
-                    {/*<Link className="btn btn-default my-display-hidden" ref={"hidden-0"}>*/}
-                        {/*编辑*/}
-                    {/*</Link>*/}
-                    <button
-                        className="btn btn-danger pull-xs-right deleteButton"
-                        onClick={this.onButtonDelete.bind(this)}
-                    >
-                        删除博客
-                    </button>
-                </li>
-             </BlockWithHiddenEles>
+            <li className="list-group-item">
+                <Link to={`posts/${this.props.postId}`}>
+                    <strong>{this.props.postTitle}</strong>
+                </Link>
+                {/*<Link className="btn btn-default my-display-hidden" ref={"hidden-0"}>*/}
+                    {/*编辑*/}
+                {/*</Link>*/}
+                <button
+                    className="btn btn-danger pull-xs-right deleteButton"
+                    onClick={this.onButtonDelete.bind(this)}
+                >
+                    删除博客
+                </button>
+            </li>
         );
     }
 }

@@ -142,10 +142,19 @@ export function getPostDetail(postId){
     }
 }
 
-export function editPost({title, content, postId}){
-    console.log(title);
-    console.log(content);
-    console.log(postId);
+// 修改postDetail
+export function editPostDetail(data){
+    return function(dispatch){
+        dispatch({
+            type: 'editPostDetail',
+            payload: data
+        });
+    }
+}
+
+// 通知服务器更新某条post
+export function updatePost({postId, title, content}){
+    console.log(...arguments);
     return function(dispatch){
 
     }
