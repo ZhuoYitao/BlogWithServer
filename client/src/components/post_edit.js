@@ -10,7 +10,10 @@ class PostEdit extends Component{
     }
 
     componentDidMount(){
-        this.props.getPostDetail(this.props.params.postId);
+        // 如果没有内容（this.props.postDetail还没有被加载进来），则加载内容
+        if(this.refs.title.value==='' && this.refs.content.value===''){
+            this.props.getPostDetail(this.props.params.postId);
+        }
     }
 
     formOnChange(){
