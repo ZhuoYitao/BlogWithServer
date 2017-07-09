@@ -141,3 +141,12 @@ export function getPostDetail(postId){
         });
     }
 }
+
+export function editPost({title, content, postId}){
+    console.log(title);
+    console.log(content);
+    console.log(postId);
+    return function(dispatch){
+
+    }
+}

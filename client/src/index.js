@@ -15,6 +15,7 @@ import Posts from './components/posts';
 import RequireAuth from './components/requireAuth';
 import PostCreate from './components/post_creat';
 import PostDetail from './components/post_detail';
+import PostEdit from './components/post_edit';
 
 // ReduxThunk能让我们决定什么时候把action dispatch给reducers
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
@@ -29,6 +30,7 @@ ReactDOM.render(
             <Route path='/signout' component={Signout}/>
             <Route path="/posts" component={RequireAuth(Posts)}/>
             <Route path="/posts/new" component={RequireAuth(PostCreate)}/>
+            <Route path="/posts/edit/:postId" component={RequireAuth(PostEdit)}/>
             <Route path="/posts/:postId" component={RequireAuth(PostDetail)}/>
         </Route>
     </Router>

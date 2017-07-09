@@ -17,9 +17,9 @@ class PostItem extends Component{
                     <Link to={`posts/${this.props.postId}`}>
                         <strong>{this.props.postTitle}</strong>
                     </Link>
-                    <Link className="btn btn-default my-display-hidden" ref={"hidden-0"}>
-                        编辑
-                    </Link>
+                    {/*<Link className="btn btn-default my-display-hidden" ref={"hidden-0"}>*/}
+                        {/*编辑*/}
+                    {/*</Link>*/}
                     <button
                         className="btn btn-danger pull-xs-right deleteButton"
                         onClick={this.onButtonDelete.bind(this)}

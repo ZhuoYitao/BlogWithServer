@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router';
 import * as actions from '../actions';
 
 
@@ -12,6 +13,9 @@ class PostDetail extends Component{
         if(this.props.postDetail){
             return (
                 <div>
+                    <Link to={`/posts/edit/${this.props.params.postId}`} className="btn btn-default">
+                        编辑
+                    </Link>
                     <h3>{this.props.postDetail.title}</h3>
                     <p>{this.props.postDetail.content}</p>
                 </div>
