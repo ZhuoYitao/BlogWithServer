@@ -55,7 +55,34 @@ exports.CreateNewPost = function(req, res, next){
 
     // 如果保存时没遇到问题，就返回一个response
     res.send({postId: post.id});
-}
+};
+
+// Update a post
+exports.updatePost = function(req, res, next){
+    const postId = req.body.postId;
+    const title = req.body.title;
+    const content = req.body.content;
+
+    postModel.findById(postId, function (err, post) {
+        // Handle any possible database errors
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            // Update each attribute of a post
+            // If that attribute isn't in the request body, default back to whatever it was before.
+            post.title = title || post.title;
+            post.content = content || post.description;
+
+            // Save the updated post back to the database
+            post.save(function (err, post) {
+                if (err) {
+                    res.status(500).send(err)
+                }
+                res.send(post);
+            });
+        }
+    });
+};
 
 exports.getPostsOfAnUser = function(req, res, next){
     const uid = req.user.id;
@@ -88,7 +115,7 @@ exports.getPostsOfAnUser = function(req, res, next){
     // 在回调函数执行之前，下面的语句会先被执行
     // 因此如果在这返回响应的话，会得到一个空数组
     // res.send(posts);
-}
+};
 
 exports.deletePost = function(req, res, next){
     console.log(req.headers);
@@ -136,7 +163,7 @@ exports.deletePost = function(req, res, next){
     }).catch(()=>{
         return next('删除出错');
     });
-}
+};
 
 exports.getPost = function(req, res, next){
     const postId = req.params.postId;
@@ -150,4 +177,4 @@ exports.getPost = function(req, res, next){
     }).catch(()=>{
         return next('出错了');
     });
-}
+};

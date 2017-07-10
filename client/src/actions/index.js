@@ -154,8 +154,19 @@ export function editPostDetail(data){
 
 // 通知服务器更新某条post
 export function updatePost({postId, title, content}){
-    console.log(...arguments);
+    console.log("updatePost: "+ {...arguments});
     return function(dispatch){
-
+        axios.post(
+            `${ROOT_URL}/post-update`,
+            {postId, title, content},
+            {headers:{authorization: localStorage.getItem('token')}}
+        ).then(response=>{
+                // 在这里可以dispatch一个action对象
+                console.log("data: "+response.data);
+            }
+        ).catch(error=>{
+                console.log(error);
+            }
+        );
     }
 }

@@ -11,6 +11,7 @@ class Posts extends Component{
 
     // 组件第一次渲染前获取博客列表
     componentDidMount() {
+        console.log("posts did mount");
         this.props.getPosts();
     }
 

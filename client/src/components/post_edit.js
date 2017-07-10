@@ -7,6 +7,7 @@ class PostEdit extends Component{
     constructor(){
         super(...arguments);
         this.formOnChange = this.formOnChange.bind(this);
+        this.changed = false;
     }
 
     componentDidMount(){
@@ -17,6 +18,7 @@ class PostEdit extends Component{
     }
 
     formOnChange(){
+        this.changed = true;
         this.props.editPostDetail({
             title: this.refs.title.value,
             content: this.refs.content.value
@@ -24,20 +26,19 @@ class PostEdit extends Component{
     }
 
     formSubmit(formProps){
-        // 用户什么也没修改过，直接返回
-        if(formProps.title===undefined && formProps.content===undefined){
-            return ;
+        // 表单有修改过才需要提交修改的请求
+        if(this.changed){
+            // 没修改过title，则直接用之前的title
+            if(formProps.title===undefined){
+                formProps.title = this.props.postDetail.title;
+            }
+            // 用户没修改过content，则直接用之前的content
+            if(formProps.content===undefined){
+                formProps.content = this.props.postDetail.content;
+            }
+            this.props.updatePost({...formProps, postId: this.props.params.postId});
+            this.changed = false;
         }
-        // 没修改过title，则直接用之前的title
-        if(formProps.title===undefined){
-            formProps.title = this.props.postDetail.title;
-        }
-        // 用户没修改过content，则直接用之前的content
-        if(formProps.content===undefined){
-            formProps.content = this.props.postDetail.content;
-        }
-        // Todo：更改这个action, 使其能发送请求给服务器，从而修改服务器里这篇post的数据
-        this.props.updatePost({...formProps, postId: this.props.params.postId});
     }
 
     render(){

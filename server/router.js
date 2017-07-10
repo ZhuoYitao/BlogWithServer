@@ -38,4 +38,7 @@ module.exports = function(app){
 
     // 获取博客的具体内容
     app.get('/posts/:postId', requireAuth, postController.getPost);
-}
+
+    // 更新一篇博客
+    app.post('/post-update', requireAuth, postController.updatePost);
+};
